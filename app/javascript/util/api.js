@@ -4,18 +4,19 @@ async function customFetch(url, options = {}) {
   options.headers = {
     // Your code here
     'X-CSRF-Token': csrfToken,
-    'Accept' : 'application/JSON',
+    'Accept': 'application/JSON',
     ...options.headers
   };
-
-
+  
+  // const res = response.json();
+  // return res;
   return await fetch(url, options);
 }
 
 export function followUser(id) {
   return customFetch( `/users/${id}/follow`,{
     method: "POST",
-
+    
   })
 }
 
